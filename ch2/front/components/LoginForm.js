@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 
 import useInput from '../hooks/useInput';
-import { loginAction } from '../reducers'
+import { loginAction } from '../reducers/user'
 
 const ButtonWrapper = styled.div`
   margin-top: 10px;
@@ -15,7 +15,7 @@ const FormWrapper = styled(Form)`
   padding: 10px;
 `;
 
-const LoginForm = ({ setIsLoggedIn }) => {
+const LoginForm = () => {
   const dispatch = useDispatch();
   const [id, onChangeId] = useInput('');
   const [password, onChangePassword] = useInput('')
@@ -23,7 +23,6 @@ const LoginForm = ({ setIsLoggedIn }) => {
   const onSubmitForm = useCallback(() => {
     console.log(id, password);
     dispatch(loginAction({ id, password }));
-    setIsLoggedIn(true);
   },[id, password]);
   
   return (
