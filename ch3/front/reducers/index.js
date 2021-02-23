@@ -13,11 +13,6 @@ const initialState = {
   }
 };
 
-
-
-
-
-
 // (이전상태, 액션) => 다음상태
 const rootReducer = combineReducers({
   index: (state = {}, action) => {
